@@ -130,10 +130,10 @@ sub _report_hotfixes ($report) {
         }
       }
       if ($gt_count > 1 || $lt_count > 1) {
-        say "$report->{id} has more than 1 range bundled together in '$version'";
+        warn "$report->{id} has more than 1 range bundled together in '$version'\n";
       }
       elsif ($gt_count == 1 && $lt_count == 1 && $lower_end > $higher_end) {
-        say "$report->{id} has invalid range in '$version'";
+        warn "$report->{id} has invalid range in '$version'\n";
       }
     }
     push @sanitized_versions, join(',', @sanitized_ands);
